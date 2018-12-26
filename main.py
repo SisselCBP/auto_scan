@@ -9,10 +9,11 @@ import nmap
 
 nm = nmap.PortScanner()
 
-nm.scan('127.0.0.1', arguments='-v -Ox')
+nm.scan('25.25.205.36', arguments='-v -Pn')
 # 列出结果
-def list_nmap_report(nm)
+def list_nmap_report(nm):
     for host in nm.all_hosts():
+        print nm[host]
         print('----------------------------------------------------')
         print('Host : %s (%s)' % (host, nm[host].hostname()))
         print('State : %s' % nm[host].state())
@@ -23,6 +24,9 @@ def list_nmap_report(nm)
             lport.sort()
             for port in lport:
                 print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+
+
+list_nmap_report(nm)
 
 
 
@@ -88,11 +92,15 @@ def sshclient_execmd(hostname, port, username, password, execmd_list):
 # webshell
   
 def web_shell(url, exec_cmd):
-    shell = requests.get(url+exec_cmd)
-    if shell.code >= 400:
+    try:
+        shell = requests.get(url+exec_cmd)
+        if shell.code >= 400:
+            return False
+        else:
+            return shell.content
+    except Exception as err:
+        print err
         return False
-    else:
-        return shell.content
 
 
 # arp获得 - NMAP有一点重，用指令有一点慢

@@ -6,18 +6,16 @@
 
 import os, time
 import logging
-from settings import *
 
-# encoding=utf-8
 import logging,time
 
-# log_path是存放日志的路径
 import os
 
 
-#cur_path = os.path.dirname(os.path.realpath(__file__))
-cur_path = os.path.realpath(__file__)
+cur_path = os.path.dirname(os.path.realpath(__file__))
+#cur_path = os.path.realpath(__file__)
 log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+# 存在根目录下
 
 class Log(object):
 
