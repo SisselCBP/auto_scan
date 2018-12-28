@@ -7,23 +7,20 @@
 import os
 import nmap
 
-nm = nmap.PortScanner()
+from settings import *
+from log import *
+from load_script import *
 
-nm.scan('25.25.205.36', arguments='-v -Pn')
+class PortScanner():
 
-# 列出结果
-def list_nmap_report(nm):
-    for host in nm.all_hosts():
-        print('----------------------------------------------------')
-        print('Host : %s (%s)' % (host, nm[host].hostname()))
-        print('State : %s' % nm[host].state())
-        for proto in nm[host].all_protocols():
-            print('----------')
-            print('Protocol : %s' % proto)
-            lport = nm[host][proto].keys()
-            lport.sort()
-            for port in lport:
-                print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+    def __init__(self):
+        pass
+    
+    def start(self):
+
+        pass
+
 
 if __name__ == "__main__":
-    list_nmap_report(nm)
+    p_scanner = PortScanner()
+    p_scanner.start()

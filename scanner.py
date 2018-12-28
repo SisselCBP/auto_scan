@@ -10,5 +10,9 @@ if __name__ == "__main__":
     print 'system start'
     #host_scanner = HostScanner()
     port_scanner = PortScanner()
-    port_scanner
+    ip = '192.168.31.1'
+    port_scanner.start(ip)
+
+    
+
     

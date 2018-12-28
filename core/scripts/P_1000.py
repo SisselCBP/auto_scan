@@ -5,6 +5,7 @@
 # 这只竹鼠很漂亮呀
 
 import datetime
+from ... import log
 
 class P_1000():
 
@@ -23,13 +24,13 @@ class P_1000():
 
         nm = nmap.PortScanner()
         nm.scan(ip, arguments='-v -Pn')
-        # 很慢 -sn
+        # 很慢
         self.list_nmap_report(nm)
         
     # 列出结果
     def list_nmap_report(self, nm):
+        log.debug(nm[nm.all_hosts[0]])
         for host in nm.all_hosts():
-            print nm[host]
             print('----------------------------------------------------')
             print('Host : %s (%s)' % (host, nm[host].hostname()))
             print('State : %s' % nm[host].state())
@@ -44,7 +45,9 @@ class P_1000():
         '''
         这里封装好返回给上层处理
         '''
-
         return 
 
 
+if __name__ == "__main__":
+    p_scan = P_1000()
+    p_scan.main('192.168.31.1')

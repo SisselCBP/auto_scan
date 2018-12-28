@@ -30,3 +30,10 @@ result = {
         'is_router': False,
     }
 }
+
+result_hosts = ['10.3.8.211', '10.3.8.216', '10.3.8.217']
+
+result_local_info = {
+    ''
+}
+
