@@ -7,7 +7,7 @@
 import logging
 
 LOGGING_LEVEL = logging.DEBUG
-SCRIPT_PATH = './core/scripts'
+#SCRIPT_PATH = './core/scripts'
 SCRIPTS_MODULES_PATH = "core.scripts."
 
 HOST_SCRIPT_NAME = "H_"

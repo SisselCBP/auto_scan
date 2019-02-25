@@ -17,6 +17,8 @@ class PortScanner():
         pass
     
     def start(self):
+        script = Script()
+        print script
 
         pass
 
